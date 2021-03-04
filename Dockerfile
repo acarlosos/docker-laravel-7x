@@ -27,6 +27,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 # Install extensions
 #mbstring
 RUN docker-php-ext-install zip exif pcntl
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN docker-php-ext-configure pdo_mysql
 RUN docker-php-ext-install gd
 RUN docker-php-ext-configure gd --with-jpeg=/usr/include/ --with-freetype=/usr/include/

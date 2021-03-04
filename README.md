@@ -8,15 +8,19 @@ Primeiramente, verifique se você está no seu diretório home e faça uma cópi
 
 Vá até o diretório docker-laravel-7x:
 
-    $ cd ~/docker-laravel-7x
+    $ cd ~/docker-laravel-7x/www
+
+Em seguida vamos clonar o Laravel
+
+    $ git clone --depth 1 --branch v7.30.0 https://github.com/laravel/laravel.git .
 
 Em seguida, utilize a imagem do composer para montar os diretórios que você precisará para seu projeto:
 
-    $ docker run --rm -it --volume $(pwd):/app prooph/composer:7.3 install
+    $ docker run --rm -it --volume $(pwd):/app composer install
 
 Como passo final, defina as permissões no diretório do projeto para que ele seja propriedade do seu usuário não root:
 
-    sudo chown -R $USER:$USER ~/laravel-app
+    sudo chown -R $USER:$USER ~/docker-laravel-7x
 
 ## Passo 2 - Modificando as configurações do ambiente e executando os contêineres
 
@@ -76,7 +80,7 @@ Para colocar essas configurações em um arquivo de cache, que irá aumentar a v
 
 Suas definições da configuração serão carregadas em /var/www/bootstrap/cache/config.php no contêiner.
 
-Como passo final, visite http://localhost no navegador.
+Como passo final, visite http://localhost:8080 no navegador.
 Você verá a seguinte página inicial para seu aplicativo Laravel:
 
 <img src="https://assets.digitalocean.com/articles/laravel_docker/laravel_home.png" >
