@@ -183,7 +183,8 @@ Output
    }
 >>>
 ```
-
+Para sair digite o comando abaixo:
+    $ exit
 ## O arquivo do Docker Compose
 
 No arquivo docker-compose, você tem três serviços: app, webserver e db.  Certifique-se de substituir a senha root para o MYSQL_ROOT_PASSWORD, definida como uma variável de ambiente sob o serviço db, por uma senha forte da sua escolha:
